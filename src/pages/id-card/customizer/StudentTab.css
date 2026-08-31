@@ -1,0 +1,43 @@
+.student-tab .toolbar-btn {
+    width: fit-content;
+    min-width: 150px;
+    max-width: 100%;
+    min-height: 34px;
+    padding: 7px 12px;
+    background: #334155;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.2s ease;
+}
+
+.student-tab .toolbar-btn:hover {
+    background: var(--idc-accent, #6366f1);
+}
+
+.student-control-section { padding: 12px; border: 1px solid var(--idc-border, #dbe1ea); border-radius: 10px; background: var(--idc-surface, rgba(255,255,255,.6)); }
+.student-control-section + .student-control-section { margin-top: 14px; }
+.student-control-heading { display: flex; align-items: center; gap: 9px; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--idc-border, #dbe1ea); }
+.student-control-heading > span { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 50%; background: var(--idc-accent, #6366f1); color: #fff; font-size: 12px; font-weight: 800; }
+.student-control-heading strong, .student-control-heading small { display: block; }
+.student-control-heading strong { color: var(--idc-heading, #1e293b); font-size: 13px; }
+.student-control-heading small { margin-top: 1px; color: var(--idc-text, #64748b); font-size: 10px; }
+.student-name-format-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0; }
+.student-format-btn { min-height: 36px; padding: 7px 10px; color: var(--idc-heading, #334155); background: var(--idc-surface-solid, #fff); border: 1px solid var(--idc-border, #cbd5e1); border-radius: 8px; font: inherit; font-size: 11px; font-weight: 600; cursor: pointer; }
+.student-format-btn strong { margin-right: 4px; font-size: 15px; }
+.student-format-btn.active { color: #fff; background: linear-gradient(135deg, #4f46e5, #6366f1); border-color: #4f46e5; }
+
+
+.student-tab .color-inputs-inline .toolbar-btn {
+    color: #ffffff;
+    background: #334155;
+}
+.student-tab .color-inputs-inline .toolbar-btn:hover {
+    color: #ffffff;
+    background: #4f46e5;
+}
+

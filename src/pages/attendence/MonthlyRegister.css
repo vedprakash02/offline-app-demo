@@ -1,0 +1,368 @@
+.attendance-register {
+    padding: 5px;
+    color: var(--text);
+    font-size: 11px;
+}
+
+.ar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    gap: 5px;
+}
+
+.ar-header h2 {
+    margin: 0;
+    color: var(--text-h);
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.ar-header small,
+footer {
+    font-size: 11px;
+}
+
+.ar-header button {
+    padding: 3px 8px;
+    border: 0;
+    border-radius: 4px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+/* Updated Filter Box Layout: Grid lagaya hai taaki inputs aur legends barabar fit ho sakein */
+.ar-filters {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 6px;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.ar-filters label {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-h);
+}
+
+.ar-filters input,
+.ar-filters select {
+    height: 20px;
+    min-width: 90px;
+    padding: 2px 6px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: var(--bg);
+    color: var(--text-h);
+    font-size: 11px;
+}
+
+.ar-filters .ar-search {
+    flex: 0.4;
+    min-width: 120px;
+}
+
+.ar-search input {
+    width: 100%;
+}
+
+/* Naya New Element: Legends alignment filters ke side ki khali jagah me */
+.ar-status-legends {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    height: 20px; /* Filter inputs ke barabar fit karne ke liye */
+ 
+    box-sizing: border-box;
+}
+
+.ar-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+.ar-legend-item b {
+    font-size: 10px;
+}
+
+/* Summary Grid layout columns compact: Ab legends hatne se ye 4 block ka reh gaya */
+.ar-summary {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(75px, 1fr)) minmax(200px, 2fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.ar-summary>div,
+.ar-summary .ar-manual-holiday {
+    padding: 3px 6px;
+    background: var(--bg);
+}
+
+.ar-summary span {
+    display: block;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: .75;
+    line-height: 1;
+}
+
+.ar-summary strong {
+    font-size: 12px;
+    color: var(--text-h);
+    line-height: 1.2;
+}
+
+/* Manual Holiday Setup box container wrapper */
+.ar-manual-holiday {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1px;
+    border-left: 1px solid var(--border);
+}
+
+.ar-ctrl-title {
+    font-size: 8px !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: .75;
+    line-height: 1;
+}
+
+.ar-ctrl-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.ar-ctrl-row input[type="date"] {
+    height: 16px;
+    font-size: 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0 3px;
+    background: var(--bg);
+    color: var(--text-h);
+}
+
+.ar-ctrl-row button {
+    height: 18px;
+    padding: 0 6px;
+    font-size: 9px;
+    font-weight: 700;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    line-height: 18px;
+}
+
+.ar-ctrl-row .btn-mark-h {
+    background: #c93636;
+}
+
+.ar-ctrl-row .btn-remove-h {
+    background: #14804a;
+}
+
+.ar-ctrl-row button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.ar-scroll {
+    overflow: auto;
+    max-height: calc(100vh - 160px);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+}
+
+.ar-scroll table {
+    min-width: 900px;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: var(--bg);
+    font-size: 10px;
+}
+
+.ar-scroll th,
+.ar-scroll td {
+    padding: 2px 5px !important;
+    text-align: center;
+    white-space: nowrap;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    line-height: 1.2 !important;
+    height: auto !important;
+}
+
+.ar-scroll th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #47326d;
+    color: #fff;
+    font-weight: 600;
+}
+
+.ar-scroll thead tr:nth-child(2) th {
+    top: 15px; 
+    background: #5a4286;
+}
+
+.ar-student {
+    position: sticky !important;
+    left: 0;
+    z-index: 3;
+    min-width: 90px;
+    max-width: 130px;
+    text-align: left !important;
+    padding-left: 6px !important;
+    background: var(--bg);
+    color: var(--text-h);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+thead .ar-student {
+    background: #47326d;
+    color: #fff;
+    z-index: 5;
+}
+
+.ar-scroll tbody tr:hover td {
+    background: var(--social-bg);
+}
+
+.ar-scroll tbody tr:hover .ar-student {
+    background: var(--social-bg);
+}
+
+.ar-student em {
+    display: inline-block;
+    min-width: 14px;
+    font-style: normal;
+    font-weight: 800;
+    color: var(--accent);
+}
+
+.ar-day-holiday {
+    background: #7651a8 !important;
+}
+
+.ar-cell-holiday {
+    background: rgba(118, 81, 168, .06);
+}
+
+.ar-mark {
+    font-size: 10px;
+    font-weight: 700;
+    display: inline-block;
+    line-height: 1;
+}
+
+.ar-present { color: #14804a; }
+.ar-absent { color: #c93636; }
+.ar-late { color: #a96700; }
+.ar-holiday { color: #7651a8; }
+.ar-empty { color: #999; }
+
+.ar-good,
+.ar-low {
+    display: inline-block;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 9px;
+}
+
+.ar-good {
+    background: #dff5e7;
+    color: #14733f;
+}
+
+.ar-low {
+    background: #fde5e5;
+    color: #b12626;
+}
+
+.ar-message {
+    padding: 20px;
+    text-align: center;
+    background: var(--code-bg);
+    border-radius: 6px;
+}
+
+.ar-error {
+    color: #c93636;
+}
+
+footer {
+    margin-top: 6px;
+    opacity: .75;
+    font-size: 10px;
+    line-height: 1.2;
+}
+
+@media(max-width:920px) {
+    .ar-status-legends {
+        margin-left: 0;
+        width: 100%;
+        margin-top: 4px;
+    }
+}
+
+@media(max-width:760px) {
+    .attendance-register {
+        padding: 5px;
+    }
+
+    .ar-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .ar-summary {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ar-summary .ar-manual-holiday {
+        grid-column: 1/-1;
+        border-left: 0;
+        border-top: 1px solid var(--border);
+        padding: 5px 4px;
+    }
+
+    .ar-scroll {
+        max-height: calc(100vh - 320px);
+    }
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "../gen/schemas/capabilities-schema.json",
+  "identifier": "default",
+  "description": "Capability for the main window",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "shell:default",
+    "dialog:default",
+    "fs:default",
+    {
+      "identifier": "shell:allow-spawn",
+      "allow": [
+        { "name": "backend-erp", "sidecar": true },
+        { "name": "backend-id", "sidecar": true }
+      ]
+    }
+  ]
+}

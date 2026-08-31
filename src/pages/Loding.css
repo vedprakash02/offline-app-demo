@@ -1,0 +1,33 @@
+/* Poore page ko cover karne wala overlay container */
+.loading-container {
+  position: fixed; /* Poore screen par fix karne ke liye */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8); /* Halka white transparent background */
+  display: flex;
+  flex-direction: column; /* Spinner ke niche text dikhane ke liye */
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  font-size: 25px; /* Text thoda bada kiya */
+  font-weight: 500;
+  color: #333;
+  z-index: 9999; /* Taaki yeh sabhi elements ke upar dikhe */
+}
+
+/* Bada ghoomne wala gol spinner */
+.spinner {
+  width: 100px; /* Size 24px se badhakar 50px kiya */
+  height: 100px;
+  border: 5px solid #f3f3f3; /* Border thickness badhayi */
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

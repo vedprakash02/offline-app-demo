@@ -1,0 +1,244 @@
+.student-promo-container {
+  width: 100%;
+  max-width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.student-promo-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.student-promo-header h2 {
+  margin: 0;
+  color: var(--text-h);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.student-promo-header p {
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.student-promo-alert {
+  margin-bottom: 12px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.student-promo-alert.success {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+}
+
+.student-promo-alert.danger {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+}
+
+.student-promo-filter-panel {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 10px;
+  align-items: end;
+  padding: 9px;
+  margin-bottom: 9px;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.student-promo-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.student-promo-input-group label {
+  color: var(--text-h);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.student-promo-input-group select,
+.student-promo-target select {
+  min-height: 36px;
+  padding: 7px 9px;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+}
+
+.student-promo-load-btn,
+.student-promo-action-btn {
+  min-height: 36px;
+  padding: 7px 12px;
+  color: #fff;
+  background: #2563eb;
+  border: 0;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.student-promo-load-btn:hover,
+.student-promo-action-btn:hover {
+  opacity: 0.88;
+}
+
+.student-promo-load-btn:disabled,
+.student-promo-action-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.student-promo-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.student-promo-summary span {
+  padding: 5px 9px;
+  color: var(--text-h);
+  background: var(--accent-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.student-promo-table-wrap {
+  width: 100%;
+  max-height: calc(100vh - 285px);
+  min-height: 220px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.student-promo-table {
+  width: max-content;
+  min-width: 100%;
+  border-collapse: collapse;
+}
+
+.student-promo-table th,
+.student-promo-table td {
+  padding: 6px 8px;
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.student-promo-table th {
+  color: var(--text-h);
+  background: var(--code-bg);
+  font-weight: 700;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.student-promo-table tbody tr:nth-child(even) {
+  background: var(--social-bg);
+}
+
+.student-promo-table tbody tr:hover {
+  background: var(--accent-bg);
+}
+
+.student-promo-name {
+  color: var(--text-h);
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.student-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 76px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.student-promo-badge.pass {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.student-promo-badge.fail {
+  color: #b91c1c;
+  background: rgba(239, 68, 68, 0.14);
+}
+
+.student-promo-target {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.student-promo-target span {
+  color: var(--text-h);
+  font-weight: 700;
+}
+
+.student-promo-action-btn {
+  background: #16a34a;
+}
+
+.student-promo-target-session { color: var(--accent) !important; }
+:root[data-theme="dark"] .student-promo-alert.success,
+:root[data-theme="dark"] .student-promo-badge.pass { color: #6ee7b7; }
+:root[data-theme="dark"] .student-promo-alert.danger,
+:root[data-theme="dark"] .student-promo-badge.fail { color: #fda4af; }
+
+.student-promo-empty {
+  padding: 22px !important;
+  text-align: center !important;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .student-promo-filter-panel {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .student-promo-container {
+    padding: 10px;
+  }
+
+  .student-promo-filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .student-promo-header h2 {
+    font-size: 19px;
+  }
+}

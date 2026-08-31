@@ -1,0 +1,5 @@
+.tab-navigation-wrapper { display: flex; gap: 5px; padding: 5px; flex-wrap: wrap; background: transparent; border-bottom: none; }
+.tab-navigation-wrapper .tab-btn { flex: 1 1 calc(50% - 6px); min-width: 0; padding: 7px 10px; font-size: 12px; font-weight: 600; line-height: 1.25; height: auto; border: 1px solid var(--idc-border, rgba(99, 102, 241, 0.15)); background: var(--idc-surface-solid, #fff); color: var(--idc-muted, #64748b); border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; transition: all 0.2s ease; font-family: inherit; }
+.tab-navigation-wrapper .tab-btn:hover { color: var(--idc-accent, #6366f1); border-color: rgba(99, 102, 241, 0.35); background: var(--idc-accent-soft, rgba(99, 102, 241, 0.08)); }
+.tab-navigation-wrapper .tab-btn.active { background: linear-gradient(135deg, #6366f1, #818cf8); color: #fff; border-color: transparent; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35); }
+@media (min-width: 961px) { .tab-navigation-wrapper .tab-btn { flex: 1 1 auto; } }

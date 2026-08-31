@@ -1,0 +1,53 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Application build artifacts and local runtime data
+release/
+uploads/
+src-tauri/target/
+src-tauri/target-*/
+backend erp/uploads/
+backend erp/backups/
+*.exe
+*.msi
+*.apk
+*.dmg
+
+# Secrets, databases, and generated licences
+.env
+.env.*
+!.env.example
+backend erp/.school-erp-jwt-secret
+*.db
+*.db-shm
+*.db-wal
+*.key
+*.pem
+!**/license-public.pem
+*.lic
+
+# Local agent and staging files
+.agents/
+admin-ui-package-stage/
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

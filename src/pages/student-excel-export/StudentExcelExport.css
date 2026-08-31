@@ -1,0 +1,27 @@
+.student-excel-page { min-height: 100%; padding: 28px; color: var(--text-h); }
+.student-excel-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; margin-bottom: 22px; }
+.student-excel-header span { color: var(--accent); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
+.student-excel-header h1 { margin: 6px 0 0; font-size: 30px; }
+.student-excel-header p { margin: 6px 0 0; color: var(--text); font-size: 13px; }
+.student-excel-count { display: grid; min-width: 105px; padding: 12px 16px; text-align: center; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-solid); }
+.student-excel-count strong { color: var(--accent); font-size: 24px; }
+.student-excel-count span { color: var(--text); letter-spacing: 0; }
+.student-excel-card { padding: 20px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-solid); box-shadow: var(--shadow-sm); }
+.student-excel-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 20px; }
+.student-excel-steps > div { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 2px 10px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: var(--bg-subtle); }
+.student-excel-steps svg { grid-row: 1 / 3; color: var(--accent); font-size: 22px; }
+.student-excel-steps strong { font-size: 13px; }
+.student-excel-steps span { color: var(--text); font-size: 11px; }
+.student-excel-controls { display: grid; grid-template-columns: minmax(170px, 1fr) minmax(160px, 1fr) auto auto auto; align-items: end; gap: 10px; }
+.student-excel-controls label { display: grid; gap: 5px; color: var(--text); font-size: 11px; font-weight: 750; }
+.student-excel-controls input, .student-excel-controls select { height: 40px; padding: 0 11px; border: 1px solid var(--border); }
+.student-excel-controls button, .excel-studio-link { min-height: 40px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 13px; border: 0; border-radius: 9px; color: #fff; font-size: 12px; font-weight: 750; text-decoration: none; cursor: pointer; }
+.excel-refresh { background: #475569; }
+.excel-download { background: #059669; }
+.excel-studio-link { background: #4f46e5; }
+.student-excel-notice { margin: 14px 0 0; padding: 10px 12px; color: var(--text-h); background: var(--accent-bg); border-radius: 9px; font-size: 12px; }
+.student-excel-info { margin-top: 14px; padding: 12px; color: var(--text); background: var(--bg-subtle); border: 1px solid var(--border); border-radius: 10px; font-size: 12px; }
+.student-excel-info code { color: var(--accent); font-weight: 800; }
+@media (max-width: 1050px) { .student-excel-controls { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 650px) { .student-excel-page { padding: 18px 12px; } .student-excel-header { align-items: flex-start; flex-direction: column; } .student-excel-steps, .student-excel-controls { grid-template-columns: 1fr; } }
+.excel-studio-link{font-size:10px!important;padding:0 10px!important}

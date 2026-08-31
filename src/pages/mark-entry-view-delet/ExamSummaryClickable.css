@@ -1,0 +1,34 @@
+.es-name{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:0.5rem;
+  width:100%;
+  padding:0.75rem 0.9rem;
+  border:1px solid transparent;
+  border-radius:10px;
+  background:transparent;
+  color:var(--accent)!important;
+  cursor:pointer;
+  text-decoration:none;
+  text-align:left;
+  font-weight:700;
+}
+
+.es-name small{
+  display:block;
+  margin-top:3px;
+  color:var(--text-secondary);
+  font-size:0.75rem;
+  font-weight:400;
+}
+
+.es-name:hover{
+  background:var(--accent-bg);
+}
+
+.es-name:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+

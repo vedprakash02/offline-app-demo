@@ -1,0 +1,15 @@
+export const imageTemplates = [
+  { id: 1, name: "Design 1", path: "/templates/bg1.png" },
+  { id: 2, name: "Design 2", path: "/templates/bg2.png" },
+  { id: 3, name: "Design 3", path: "/templates/bg3.png" },
+  { id: 4, name: "Design 4", path: "/templates/bg4.png" },
+  { id: 5, name: "Design 5", path: "/templates/bg5.png" },
+  { id: 6, name: "Design 6", path: "/templates/bg6.png" },
+  { id: 7, name: "Design 7", path: "/templates/bg7.png" },
+  { id: 8, name: "Design 8", path: "/templates/bg8.png" },
+  { id: 9, name: "Design 9", path: "/templates/bg9.png" },
+  { id: 10, name: "Design 10", path: "/templates/bg10.png" },
+  { id: 11, name: "Design 11", path: "/templates/bg11.png" },
+  { id: 12, name: "Design 12", path: "/templates/bg12.png" },
+  { id: 13, name: "Design 13", path: "/templates/bg13.png" },
+];

@@ -1,0 +1,597 @@
+/* ======= THEME VARIANT REPORT CARD WORKSPACE ======= */
+.report-card-system-wrapper {
+    width: 100%;
+    margin-top: 15px;
+    font-family: var(--sans);
+    letter-spacing: 0.18px;
+    color: var(--text);
+    background-color: var(--bg);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* एक्शन कंट्रोल पैनल (Theme Adapted) */
+.action-control-panel {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 5px;
+    background-color: var(--code-bg);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.close-btn {
+    background-color: red;
+    color: var(--bg);
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: filter 0.2s;
+    margin-top: 5px;
+}
+
+.close-btn:hover {
+    filter: brightness(0.9);
+}
+
+.print-main-btn {
+    background-color: #38a169;
+    color: #ffffff;
+    padding: 10px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background 0.2s;
+}
+
+.print-main-btn:hover {
+    background-color: #2f855a;
+}
+
+.loader-msg,
+.empty-state {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: var(--text);
+    font-weight: 500;
+}
+
+/* ======= SCREEN SCREEN PAR A4 LAYOUT (THEME SYNCED) ======= */
+.a4-report-sheet {
+    background-color: var(--bg);
+    color: var(--text);
+    width: 210mm;
+    height: 297mm;
+    min-height: 297mm;
+    margin: 0 auto 30px auto;
+    padding: 5mm;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+@page {
+    size: A4 portrait;
+    margin: 8mm;
+}
+
+.inner-border-decorator {
+    border: 2px solid var(--text-h);
+    padding: 15px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 275mm;
+    height: 100%;
+    gap: 6px;
+}
+
+/* स्कूल हेडर (Theme Dynamic Elements) */
+.card-school-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 3px double var(--text-h);
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.card-logo-img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    margin-right: 15px;
+}
+
+.card-logo-placeholder {
+    font-size: 45px;
+    margin-right: 15px;
+    color: var(--accent);
+}
+
+.card-school-text {
+    flex: 1;
+}
+
+.card-school-text h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 35px;
+    color: var(--text-h);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+}
+
+.card-school-address {
+    display: flex;
+    justify-content: center;
+    margin: 2px 0;
+    font-size: 20px;
+    color: var(--text-h);
+}
+
+.card-school-codes {
+
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    color: var(--text-h);
+    margin-top: 2px;
+}
+
+/* रिपोर्ट हेडर */
+
+.report-title-row {
+    display: grid;
+    grid-template-columns: 82px 1fr 82px;
+    align-items: center;
+    
+}
+
+.report-title-spacer {
+    width: 82px;
+    height: 96px;
+}
+
+.card-report-title {
+    text-align: center;
+}
+
+.student-report-photo-box {
+    width: 90px;
+    height: 110px;
+    border: 1.5px solid var(--text-h);
+    background-color: var(--bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.student-report-photo-box span {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.5px;
+}
+
+.card-report-title h3 {
+    margin: 0;
+    font-size: 25px;
+    color: var(--text-h);
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.session-tag {
+    margin: 2px 0 0 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+.class {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* छात्र विवरण ग्रिड (Theme Code-Bg Applied) */
+.card-student-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+    background-color: var(--social-bg);
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: var(--text-h);
+    font-weight: 500;
+}
+
+.info-item {
+    line-height: 1.3;
+}
+
+.info-item strong {
+    color: var(--text-h);
+}
+
+/* मार्क्स तालिका डिजाइन (Variable Matrix Style) */
+.card-table-container {
+    width: 100%;
+    margin-bottom: 0;
+    flex: 0 0 auto;
+}
+
+.card-marks-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--bg);
+}
+
+.card-marks-table th,
+.card-marks-table td {
+    border: 1px solid var(--border);
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-h);
+}
+
+td {
+    font-size: 11px !important;
+
+}
+
+.card-marks-table th {
+    background-color: var(--code-bg);
+    color: var(--text-h);
+    font-weight: bold;
+    padding: 0 1px !important;
+
+}
+
+.subject-title-column {
+    text-align: left !important;
+    font-weight: 600;
+    padding-left: 6px !important;
+    color: var(--text-h);
+}
+
+.highlight-obtained-total {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.table-summary-row {
+    background-color: var(--code-bg);
+    font-weight: bold;
+}
+
+/* Utility Helpers */
+.text-center {
+    text-align: center !important;
+    font-size: 12px !important;
+}
+
+.text-right-aligned {
+    text-align: right !important;
+    padding-right: 8px !important;
+    color: var(--text-h);
+}
+
+.font-bold {
+    font-weight: bold !important;
+}
+
+.final-total-count {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: bold;
+
+}
+
+/* परिणाम विश्लेषण सेक्शन */
+.marks-summary-details {
+    margin-top: 2px;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color, #cbd5e1);
+    font-size: 13px;
+    color: var(--text-h);
+}
+
+.marks-summary-details p {
+    margin: 2px 0;
+}
+
+.card-result-footer-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 6px;
+    padding-top: 6px;
+    margin-bottom: 0;
+}
+
+.final-performance-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-row {
+    font-size: 13.5px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    color: var(--text-h);
+}
+
+.stat-label {
+    font-weight: 600;
+}
+
+.stat-value {
+    font-weight: bold;
+    color: var(--accent);
+}
+
+.status-stamp {
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-stamp.PASSED {
+    color: #15803d;
+    border: 1px solid #15803d;
+    background-color: rgba(21, 128, 61, 0.1);
+}
+
+.status-stamp.FAILED {
+    color: #b91c1c;
+    border: 1px solid #b91c1c;
+    background-color: rgba(185, 28, 28, 0.1);
+}
+
+/* सिग्नेचर ब्लॉक्स */
+.card-signatures-block {
+    display: flex;
+    gap: 60px;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 50px;
+}
+
+.signature-seal-box {
+    text-align: center;
+    width: 130px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+.signature-line-placeholder {
+    height: 35px;
+    margin-bottom: 2px;
+}
+
+.image-signature-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.principal-sig-img {
+    max-height: 35px;
+    object-fit: contain;
+    filter: drop-shadow(0px 2px 4px var(--shadow));
+}
+
+.signature-seal-box p {
+    border-top: 1px dashed var(--border);
+    margin: 0;
+    padding-top: 4px;
+}
+
+@media print {
+
+    .report-card-system-wrapper {
+        --bg: #ffffff;
+        --text: #111827;
+        --text-h: #000000;
+        --border: #9ca3af;
+        --code-bg: #f3f4f6;
+        --social-bg: #f8fafc;
+        --accent: #000000;
+        color-scheme: light;
+        color: #000000 !important;
+        background: #ffffff !important;
+    }
+
+    /* 1. Unwanted screens elements ko hide karna */
+    .page-title,
+    .filter-form-box,
+    .form-submit-row,
+    .student-table-wrapper,
+    .manage-marks-container>.page-title,
+    .manage-marks-container>.filter-form-box,
+    .manage-marks-container>.student-table-wrapper,
+    .report-card-modal-container>.close-btn,
+    .report-card-modal-container>.action-control-panel,
+    .no-print,
+    .action-control-panel,
+    .close-btn,
+    .print-main-btn,
+    .loader-msg,
+    .empty-state {
+        display: none !important;
+    }
+
+    html,
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #ffffff !important;
+
+
+
+        .inner-border-decorator {
+            border: 2px solid red;
+            padding: 20px !important;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            /* min-height: 250mm !important; */
+            height: 90% !important;
+            margin-right: 10px !important;
+
+        }
+
+        /* 3. Perfect Standard A4 Dimensions */
+        .a4-report-sheet {
+            width: 200mm !important;
+
+
+            margin: 0 auto !important;
+
+            /* Clean inner spacing */
+            border: none !important;
+            box-shadow: none !important;
+            background: #ffffff !important;
+            page-break-inside: avoid !important;
+            page-break-after: always !important;
+            box-sizing: border-box !important;
+        }
+
+
+
+        .card-marks-table th,
+        .card-marks-table td {
+            border: 1px solid black !important;
+            text-align: center !important;
+            font-size: 14px !important;
+            color: black !important;
+        }
+
+        td {
+            font-size: 12px !important;
+
+        }
+
+        .card-marks-table th {
+
+            color: black !important;
+            font-weight: bold !important;
+            padding: 0 1px !important;
+
+        }
+
+        td.subject-title-column {
+            text-align: left !important;
+            font-weight: 750 !important;
+            padding-left: 6px !important;
+            color: black !important;
+            font-size: 18px !important;
+        }
+
+        td.text-center {
+            font-size: 16px !important;
+        }
+
+        .highlight-obtained-total {
+            font-weight: bold !important;
+            color: black !important;
+        }
+
+        .table-summary-row {
+            background-color: var(--code-bg);
+            font-weight: bold !important;
+        }
+
+        /* Utility Helpers */
+        .text-center {
+            text-align: center !important;
+            font-size: 16px !important;
+        }
+
+        .text-right-aligned {
+            text-align: right !important;
+            padding-right: 8px !important;
+            color: var(--text-h) !important;
+        }
+
+        .font-bold {
+            font-weight: bold !important;
+        }
+
+        .final-total-count {
+            font-size: 14px !important;
+            color: black !important;
+            font-weight: bold !important;
+
+        }
+
+
+
+    }
+
+    .card-school-text h2 {
+        margin-bottom: 20px !important;
+    }
+
+    .card-school-address {
+
+        margin-bottom: 10px !important;
+        font-size: 30p !important;
+
+    }
+
+    .card-school-codes {
+
+      
+        font-size: 16px !important;
+        
+        margin-top: 10px !important;
+    }
+    .card-student-info-grid {
+   
+    gap: 6px 10px !important;
+  
+    margin-bottom: 10px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+
+    .card-table-container {
+        flex: 0 0 auto !important;
+    }
+
+    .marks-summary-details {
+        margin-top: 2px !important;
+    }
+
+
+
+
+}

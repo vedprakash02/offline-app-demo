@@ -1,0 +1,21 @@
+/* Landscape-only overrides. Shared card styling lives in IdCardCustmizer.css. */
+.id-card.landscape {
+  width: var(--card-width-mm, 85.6mm);
+  height: var(--card-height-mm, 53.98mm);
+}
+
+.id-card.landscape h3 {
+  font-weight: 600;
+}
+
+.id-card.landscape .student-info {
+  gap: 3px;
+}
+
+.id-card.landscape .student-info p strong {
+  width: 75px;
+}
+
+.id-card.landscape .principal-signature p {
+  width: 120px;
+}

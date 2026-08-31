@@ -1,0 +1,147 @@
+.canvas-tab .toolbar-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    background: var(--idc-surface-solid, #fff);
+    border: 1px solid var(--idc-border, rgba(99, 102, 241, 0.12));
+    padding: 14px;
+    border-radius: var(--idc-radius-sm, 10px);
+}
+
+.canvas-tab .control-group {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 100%;
+}
+
+.canvas-tab .toolbar-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--idc-heading, #334155);
+}
+
+.canvas-tab .toolbar-select {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 13px;
+    color: var(--idc-heading, #1f2937);
+    background-color: var(--idc-surface-solid, #fff);
+    border: 1px solid var(--idc-border, rgba(99, 102, 241, 0.2));
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    font-family: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.canvas-tab .toolbar-select:focus {
+    border-color: var(--idc-accent, #6366f1);
+    box-shadow: 0 0 0 3px var(--idc-accent-soft, rgba(99, 102, 241, 0.15));
+}
+
+.canvas-tab .slider-container-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.canvas-tab .slider-container-box input[type="range"] {
+    flex: 1;
+    min-width: 0;
+}
+
+.canvas-tab .toolbar-btn {
+    width: fit-content;
+    min-width: 150px;
+    max-width: 100%;
+    min-height: 34px;
+    padding: 7px 12px;
+    background: #334155;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.canvas-tab .toolbar-btn:hover {
+    background: var(--idc-accent, #6366f1);
+}
+
+.canvas-tab .toolbar-btn.orientation-toggle {
+    color: #ffffff;
+    background: #334155;
+}
+
+.canvas-tab .toolbar-btn.orientation-toggle.is-landscape {
+    background: linear-gradient(135deg, #6366f1, #818cf8);
+}
+.canvas-tab .apply-canvas-btn { width: 100%; color: #fff; background: linear-gradient(135deg, #047857, #10b981); }
+.canvas-tab .apply-canvas-btn:hover { background: linear-gradient(135deg, #065f46, #059669); }
+
+.canvas-tab .custom-template-input { display: none; }
+.canvas-tab .custom-template-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.canvas-tab .custom-template-actions .toolbar-btn { min-width: 0; }
+.canvas-tab .delete-template-btn { background: #b91c1c; }
+.canvas-tab .delete-template-btn:hover { background: #991b1b; }
+.canvas-tab .custom-template-message {
+    margin: 2px 0 0;
+    color: var(--idc-muted, #64748b);
+    font-size: 11px;
+    line-height: 1.35;
+}
+
+.canvas-tab .gradient-presets-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.canvas-tab .gradient-presets-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.canvas-tab .gradient-preset-btn {
+    position: relative;
+    min-width: 0;
+    height: 46px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(15, 23, 42, 0.18);
+}
+
+.canvas-tab .gradient-preset-btn span {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 3px 2px;
+    overflow: hidden;
+    color: #fff;
+    background: rgba(15, 23, 42, 0.55);
+    font-size: 9px;
+    line-height: 1.1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.canvas-tab .gradient-preset-btn:hover,
+.canvas-tab .gradient-preset-btn.active {
+    border-color: #fff;
+    outline: 2px solid var(--idc-accent, #6366f1);
+}
+
+@media (max-width: 420px) {
+    .canvas-tab .gradient-presets-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+

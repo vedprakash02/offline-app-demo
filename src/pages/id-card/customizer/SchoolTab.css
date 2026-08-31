@@ -1,0 +1,14 @@
+.school-tab .header-height-container { grid-template-columns: auto minmax(0, 1fr); gap: 8px; padding: 7px 10px; }
+.school-tab .header-height-container > label { grid-column: auto; margin: 0; padding: 0; border-bottom: 0; white-space: nowrap; }
+.school-tab .header-height-container > div[style] { grid-column: auto !important; min-width: 0; flex-wrap: nowrap; }
+.school-tab .header-height-container > div > div { width: 100%; min-width: 0; flex-wrap: nowrap; white-space: nowrap; }
+.school-tab .header-height-container input[type="range"] { min-width: 0; width: auto; }
+.school-tab .header-graphics-row { flex-wrap: nowrap; justify-content: flex-start; gap: 8px; padding: 7px 10px; }
+.school-tab .header-graphics-row > label { flex: 0 0 auto; white-space: nowrap; }
+.school-tab .header-graphics-row .color-inputs-inline { min-width: 0; flex: 1; flex-wrap: nowrap; gap: 5px; }
+.school-tab .header-graphics-row .color-picker-wrapper { gap: 4px; padding: 3px 6px; white-space: nowrap; }
+.school-tab .header-graphics-row input[type="color"] { width: 22px; height: 22px; }
+.school-tab .header-graphics-row .color-code { font-size: 10px; font-weight: 600; color: var(--idc-muted, #64748b); }
+.school-tab .udise-bold-btn { min-height: 34px; padding: 7px 12px; color: var(--idc-heading, #334155); background: var(--idc-surface-solid, #fff); border: 1px solid var(--idc-border, #cbd5e1); border-radius: 8px; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+.school-tab .udise-bold-btn strong { margin-right: 5px; font-size: 15px; }
+.school-tab .udise-bold-btn.active { color: #fff; background: linear-gradient(135deg, #4f46e5, #6366f1); border-color: #4f46e5; }

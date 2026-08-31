@@ -1,0 +1,74 @@
+/* Pure dashboard screen ka standard parent container */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Modern shell overrides */
+.app-container { background: var(--bg); }
+.app-body { margin-top: 72px; height: calc(100vh - 72px); }
+.main-content { margin-left: 260px; padding: 22px; }
+
+/* Sidebar aur Main Area ko aamne-saamne alignment dene ke liye */
+.app-body {
+  display: flex;
+  margin-top: 72px;
+  height: calc(100vh - 72px);
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Yeh wo main box hai jiske andar Outlet render ho raha hai */
+.main-content {
+  flex-grow: 1; /* Bache hue saare right side space ko fill karega */
+  padding: 22px;
+  margin-left: 260px;
+  background-color: var(--bg);
+  min-height: 100%;
+  box-sizing: border-box;
+  transition: margin 0.3s ease;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media print {
+  .navbar,
+  .sidebar {
+    display: none !important;
+  }
+
+  .app-container {
+    height: auto !important;
+    overflow: visible !important;
+    width: 100% !important;
+  }
+
+  .app-body {
+    margin-top: 0 !important;
+    height: auto !important;
+    width: 100% !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+  }
+}
+
+/* Mobile Screens ke liye responsive rule */
+@media (max-width: 768px) {
+  .app-body {
+    flex-direction: column; /* Mobile par layout stack ho sake */
+  }
+  .main-content {
+    margin-left: 0; /* Mobile par sidebar slide out hoga isliye content full-width */
+    padding: 16px;
+  }
+}

@@ -1,0 +1,129 @@
+.operator-row { margin: 0 0 10px; padding: 8px 12px; border: 1px solid #dfe5ef; border-radius: 10px; background: #fff; }
+.operator-row label { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+.operator-row input { flex: 1; max-width: 320px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; }
+.server-ok { color: #047857; font-weight: 700; }
+.server-off { color: #b91c1c; font-weight: 700; }
+.hardware-help { color: #667085; line-height: 1.35; }
+.mobile-connect { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin: 0 0 10px; padding: 10px 12px; border: 1px solid #c7d2fe; border-radius: 10px; background: #eef2ff; }
+.mobile-connect p { margin: 3px 0; color: #475569; font-size: 13px; }
+.mobile-connect a { color: #3730a3; font-size: 13px; font-weight: 750; overflow-wrap: anywhere; }
+.mobile-connect svg { flex: 0 0 auto; padding: 4px; background: #fff; border-radius: 6px; }
+@media (max-width: 560px) { .mobile-connect { align-items: flex-start; } .mobile-connect svg { width: 72px; height: 72px; } }
+
+/* Compact attendance workspace */
+.attendance-page { gap: 6px; padding: 8px; }
+.attendance-header { order: 1; margin: 0; padding: 7px 10px; border-radius: 10px; }
+.attendance-header h2 { font-size: 17px; margin-bottom: 1px; }
+.attendance-header p { font-size: 12px; }
+.attendance-actions { gap: 5px; }
+.attendance-page button { padding: 6px 9px; border-radius: 6px; font-size: 12px; }
+.mobile-connect { order: 2; min-height: 54px; margin: 0; padding: 6px 10px; border-radius: 8px; }
+.mobile-connect p { display: inline; margin-right: 7px; font-size: 11px; }
+.mobile-connect a { font-size: 11px; }
+.mobile-connect svg { width: 52px; height: 52px; padding: 2px; }
+.operator-row { order: 3; margin: 0; padding: 5px 9px; }
+.operator-row label { font-size: 12px; }
+.operator-row input { padding: 5px 8px; }
+.attendance-layout { order: 4; grid-template-columns: minmax(230px, 285px) minmax(0, 1fr); gap: 7px; padding: 7px; }
+.scanner-card { padding: 8px; }
+.scanner-message { min-height: 30px; margin-bottom: 6px; padding: 6px 8px; }
+.camera-frame { height: clamp(125px, 22vh, 175px); }
+.scanner-controls { gap: 5px; margin-top: 6px; }
+.scanner-controls input { padding: 6px 7px; }
+.hardware-help { font-size: 10px; }
+.legacy-list { display: none; }
+.attendance-report { min-width: 0; min-height: 0; display: flex; flex-direction: column; overflow: hidden; border: 1px solid #dfe5ef; border-radius: 10px; background: #fff; }
+.list-tabs { display: flex; align-items: center; gap: 6px; padding: 7px; border-bottom: 1px solid #e5e7eb; background: #f8fafc; }
+.list-tabs button { min-width: 90px; color: #475569; background: #e2e8f0; }
+.list-tabs button.present.active { color: #fff; background: #059669; }
+.list-tabs button.absent.active { color: #fff; background: #dc2626; }
+.list-tabs button b { margin-left: 5px; padding: 1px 6px; border-radius: 9px; background: rgba(255,255,255,.28); }
+.list-tabs > span { margin-left: auto; color: #475569; font-size: 12px; }
+.attendance-report .attendance-table-wrap { overflow: auto; flex: 1; }
+.attendance-report table { width: 100%; border-collapse: collapse; }
+.attendance-report th, .attendance-report td { padding: 7px 8px; border-bottom: 1px solid #e5e7eb; text-align: left; white-space: nowrap; font-size: 12px; }
+.attendance-report th { position: sticky; top: 0; z-index: 1; color: #64748b; background: #f8fafc; font-size: 10px; text-transform: uppercase; }
+.attendance-report td span { color: #047857; font-weight: 800; }
+.attendance-report td .absent-status { color: #dc2626; }
+.attendance-report .empty-attendance { padding: 12px; }
+@media (max-width: 800px) {
+  .attendance-layout { grid-template-columns: 1fr; }
+  .attendance-report { min-height: 360px; }
+  .mobile-connect p { display: block; }
+}
+
+/* QR attendance dark theme */
+:root[data-theme="dark"] .attendance-page {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+:root[data-theme="dark"] .attendance-header,
+:root[data-theme="dark"] .attendance-layout,
+:root[data-theme="dark"] .scanner-card,
+:root[data-theme="dark"] .attendance-report,
+:root[data-theme="dark"] .operator-row {
+  color: #e5e7eb;
+  background: #111827;
+  border-color: #334155;
+}
+:root[data-theme="dark"] .attendance-header h2,
+:root[data-theme="dark"] .operator-row label,
+:root[data-theme="dark"] .mobile-connect strong,
+:root[data-theme="dark"] .attendance-report td,
+:root[data-theme="dark"] .attendance-report td b,
+:root[data-theme="dark"] .empty-attendance {
+  color: #f8fafc;
+}
+:root[data-theme="dark"] .attendance-header p,
+:root[data-theme="dark"] .hardware-help,
+:root[data-theme="dark"] .list-tabs > span {
+  color: #cbd5e1;
+}
+:root[data-theme="dark"] .server-ok { color: #6ee7b7; }
+:root[data-theme="dark"] .server-off { color: #fca5a5; }
+:root[data-theme="dark"] .mobile-connect {
+  color: #e0e7ff;
+  background: #172033;
+  border-color: #4338ca;
+}
+:root[data-theme="dark"] .mobile-connect p { color: #cbd5e1; }
+:root[data-theme="dark"] .mobile-connect a { color: #a5b4fc; }
+:root[data-theme="dark"] .operator-row input,
+:root[data-theme="dark"] .scanner-controls input {
+  color: #f8fafc;
+  background: #0f172a;
+  border-color: #475569;
+}
+:root[data-theme="dark"] .operator-row input::placeholder,
+:root[data-theme="dark"] .scanner-controls input::placeholder { color: #94a3b8; }
+:root[data-theme="dark"] .scanner-message {
+  color: #c7d2fe;
+  background: #1e1b4b;
+  border: 1px solid #3730a3;
+}
+:root[data-theme="dark"] .list-tabs {
+  background: #0f172a;
+  border-color: #334155;
+}
+:root[data-theme="dark"] .list-tabs button {
+  color: #e2e8f0;
+  background: #334155;
+}
+:root[data-theme="dark"] .attendance-report th {
+  color: #cbd5e1;
+  background: #1e293b;
+}
+:root[data-theme="dark"] .attendance-report td {
+  border-color: #334155;
+  background: #111827;
+}
+:root[data-theme="dark"] .attendance-report tbody tr:hover td { background: #172033; }
+:root[data-theme="dark"] .attendance-report td span { color: #6ee7b7; }
+:root[data-theme="dark"] .attendance-report td .absent-status { color: #fca5a5; }
+
+.erp-sync-ok { color: #047857; font-weight: 750; }
+.erp-sync-pending { color: #b45309; font-weight: 750; }
+.erp-sync-message { display: block; margin-top: 3px; color: #475569; font-size: 11px; }
+:root[data-theme="dark"] .erp-sync-ok { color: #6ee7b7; }
+:root[data-theme="dark"] .erp-sync-pending { color: #fbbf24; }
+:root[data-theme="dark"] .erp-sync-message { color: #cbd5e1; }

@@ -1,0 +1,19 @@
+{
+  "name": "sirf-id-attendance-api",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "bundle-cjs": "esbuild server.js --bundle --platform=node --outfile=dist/server-bundle.cjs --format=cjs --target=node24",
+    "build-exe": "npm run bundle-cjs && node --experimental-sea-config sea-config.json && node scripts/build-sea.cjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.0",
+    "postject": "1.0.0-alpha.6"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}
