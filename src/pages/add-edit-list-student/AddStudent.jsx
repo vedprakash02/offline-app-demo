@@ -6,6 +6,8 @@ import "./AddStudent.css";
 
 const EMPTY = { name: "", fatherName: "", motherName: "", dob: "", gender: "", cast: "", class: "", stream: "", address: "", phone: "", AadhaarNo: "" };
 const CLASSES = ["Nursery", "KG1", "KG2", "1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th", "11th", "12th"];
+const formatDobInput = (value) => { const digits = value.replace(/\D/g, "").slice(0, 8); return digits.length > 4 ? `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}` : digits.length > 2 ? `${digits.slice(0, 2)}/${digits.slice(2)}` : digits; };
+const dobToIso = (value) => { const match = value.match(/^(\d{2})\/(\d{2})\/(\d{4})$/); if (!match) return ""; const [, day, month, year] = match; const date = new Date(Number(year), Number(month) - 1, Number(day)); return date.getFullYear() === Number(year) && date.getMonth() === Number(month) - 1 && date.getDate() === Number(day) ? `${year}-${month}-${day}` : ""; };
 
 export default function AddStudent() {
   const [form, setForm] = useState(EMPTY);
@@ -13,6 +15,7 @@ export default function AddStudent() {
   const [preview, setPreview] = useState("");
   const [loading, setLoading] = useState(false);
   const [notice, setNotice] = useState(null);
+  const [dobDisplay, setDobDisplay] = useState("");
   const fileInput = useRef(null);
   const session = localStorage.getItem("activeSession") || "Not selected";
 
@@ -21,6 +24,7 @@ export default function AddStudent() {
     setNotice(null);
     setForm((old) => ({ ...old, [name]: value, ...(name === "class" && !["11th", "12th"].includes(value) ? { stream: "" } : {}) }));
   };
+  const changeDob = (event) => { const value = formatDobInput(event.target.value); setDobDisplay(value); setNotice(null); setForm((old) => ({ ...old, dob: dobToIso(value) })); };
   const clearPhoto = () => { setPhoto(null); setPreview(""); if (fileInput.current) fileInput.current.value = ""; };
   const selectPhoto = (event) => {
     const file = event.target.files?.[0];
@@ -36,6 +40,7 @@ export default function AddStudent() {
     const activeSession = localStorage.getItem("activeSession");
     if (!activeSession) return setNotice({ type: "error", text: "Select an academic session before admission." });
     if (!photo) return setNotice({ type: "error", text: "A student photo is required." });
+    if (!form.dob) return setNotice({ type: "error", text: "Enter date of birth in DD/MM/YYYY format." });
     if (!/^\d{10}$/.test(form.phone)) return setNotice({ type: "error", text: "Enter a valid 10-digit phone number." });
     setLoading(true); setNotice(null);
     try {
@@ -44,7 +49,7 @@ export default function AddStudent() {
       body.append("academicSession", activeSession); body.append("profileimage", photo);
       const { data } = await axios.post("http://localhost:3000/admission", body, { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
       setNotice({ type: "success", text: `${data.student.name} admitted successfully Â· ${data.student.admissionNo}` });
-      setForm(EMPTY); clearPhoto();
+      setForm(EMPTY); setDobDisplay(""); clearPhoto();
     } catch (error) { setNotice({ type: "error", text: error.response?.data?.message || "Admission could not be saved. Please try again." }); }
     finally { setLoading(false); }
   };
@@ -53,10 +58,10 @@ export default function AddStudent() {
     <header className="sa-hero"><div><span>STUDENT MANAGEMENT</span><h1>New student admission</h1><p>Create a complete profile for the current academic session.</p></div><div className="sa-session"><small>ACTIVE SESSION</small><strong>{session}</strong></div></header>
     {notice && <div className={`sa-notice ${notice.type}`} role="alert"><span className="sa-notice-text">{notice.type === "success" ? <FiCheckCircle /> : <FiInfo />}{notice.text}</span><button className="sa-notice-close" type="button" onClick={() => setNotice(null)} aria-label="Close message"><FiX /></button></div>}
     <form className="sa-layout" onSubmit={submit}><section className="sa-card"><Heading icon={<FiUser />} title="Student details" text="Fields marked with * are required" /><div className="sa-grid">
-      <Field label="Student name" name="name" value={form.name} onChange={change} placeholder="e.g. Aarav Sharma" /><Field label="Date of birth" name="dob" type="date" max={new Date().toISOString().slice(0, 10)} value={form.dob} onChange={change} />
+      <Field label="Student name" name="name" value={form.name} onChange={change} placeholder="e.g. Aarav Sharma" /><Field label="Date of birth" name="dobDisplay" type="text" inputMode="numeric" placeholder="DD/MM/YYYY" maxLength={10} value={dobDisplay} onChange={changeDob} />
       <Field label="Father's name" name="fatherName" value={form.fatherName} onChange={change} placeholder="Enter father's full name" /><Field label="Mother's name" name="motherName" value={form.motherName} onChange={change} placeholder="Enter mother's full name" />
       <Choice label="Gender" name="gender" value={form.gender} onChange={change} items={["Male", "Female", "Other"]} /><Choice label="Category" name="cast" value={form.cast} onChange={change} items={["gen", "obc", "sc", "st"]} />
-      <Choice label="Class / grade" name="class" value={form.class} onChange={change} items={CLASSES} />{["11th", "12th"].includes(form.class) && <Choice label="Stream" name="stream" value={form.stream} onChange={change} items={["Science", "Arts", "Commerce"]} />}
+      <Choice label="Class / grade" name="class" value={form.class} onChange={change} items={CLASSES} />{["11th", "12th"].includes(form.class) && <Choice label="Stream" name="stream" value={form.stream} onChange={change} items={["Science - Maths", "Science - Biology", "Arts", "Commerce"]} />}
       <Field label="Phone number" name="phone" value={form.phone} onChange={(e) => /^\d{0,10}$/.test(e.target.value) && change(e)} pattern="[0-9]{10}" inputMode="numeric" placeholder="10-digit mobile number" /><label className="sa-field"><span>Aadhaar number (optional)</span><input name="AadhaarNo" value={form.AadhaarNo} onChange={(e) => /^\d{0,12}$/.test(e.target.value) && change(e)} pattern="[0-9]{12}" inputMode="numeric" placeholder="12-digit Aadhaar number" /></label><Field label="Permanent address" name="address" value={form.address} onChange={change} placeholder="House, street, city and state" wide />
     </div></section><aside className="sa-side"><section className="sa-card"><Heading icon={<FiCamera />} title="Student photo" text="Clear, front-facing photo" /><button type="button" className={`sa-photo ${preview ? "ready" : ""}`} onClick={() => fileInput.current?.click()}>{preview ? <img src={preview} alt="Student preview" /> : <><FiUploadCloud /><strong>Upload a photo</strong><small>JPG, PNG or WebP Â· max 5 MB</small></>}</button><input ref={fileInput} hidden type="file" accept="image/jpeg,image/png,image/webp" onChange={selectPhoto} />{photo && <div className="sa-file"><FiCheckCircle /><span>{photo.name}</span><button type="button" onClick={clearPhoto}>Remove</button></div>}</section><div className="sa-tip"><FiInfo /><p><strong>Before you submit</strong><br />Check spelling and date of birth. Admission number is generated automatically.</p></div><button className="sa-submit" disabled={loading}>{loading ? "Saving admission..." : <>Complete admission <FiArrowRight /></>}</button></aside></form>
   </main>;

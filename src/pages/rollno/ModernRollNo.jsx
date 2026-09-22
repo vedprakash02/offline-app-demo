@@ -5,7 +5,7 @@ import { FiAlertCircle, FiCheckCircle, FiDownload, FiHash, FiRefreshCw, FiSearch
 import "./ModernRollNo.css";
 import { SCHOOL_CLASSES } from "../../academicConfig";
 
-const streamRank = { arts: 1, science: 2, commerce: 3 };
+const streamRank = { arts: 1, "science - maths": 2, science: 2, "science - biology": 3, commerce: 4 };
 
 export default function ModernRollNo() {
   const [className, setClassName] = useState("");
@@ -71,7 +71,7 @@ export default function ModernRollNo() {
 
     <section className="rn-toolbar">
       <label><span>Class</span><select value={className} onChange={(event) => { setClassName(event.target.value); setStream(""); setSearch(""); }}><option value="">Select class</option>{SCHOOL_CLASSES.map((item) => <option key={item}>{item}</option>)}</select></label>
-      <label><span>Stream</span><select value={stream} onChange={(event) => setStream(event.target.value)} disabled={!['11th','12th'].includes(className)}><option value="">All streams</option><option value="Arts">Arts</option><option value="Science">Science</option><option value="Commerce">Commerce</option></select></label>
+      <label><span>Stream</span><select value={stream} onChange={(event) => setStream(event.target.value)} disabled={!['11th','12th'].includes(className)}><option value="">All streams</option><option value="Arts">Arts</option><option value="Science - Maths">Science - Maths</option><option value="Science - Biology">Science - Biology</option><option value="Commerce">Commerce</option></select></label>
       <label className="rn-search"><span>Find student</span><div><FiSearch /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Name or roll no." disabled={!className} /></div></label>
       <button className="rn-generate" type="button" onClick={generateRollNumbers} disabled={!className || generating}><FiRefreshCw className={generating ? "spinning" : ""} />{generating ? "Generating..." : "Generate numbers"}</button>
     </section>
@@ -80,6 +80,6 @@ export default function ModernRollNo() {
       <div className="rn-summary"><div><FiUsers /><span>Students<strong>{students.length}</strong></span></div><div><FiCheckCircle /><span>Assigned<strong>{assignedCount}</strong></span></div><div><FiAlertCircle /><span>Pending<strong>{students.length - assignedCount}</strong></span></div><button type="button" onClick={downloadExcel} disabled={!displayedStudents.length}><FiDownload /> Export Excel</button></div>
       <div className="rn-table-wrap">{fetching ? <div className="rn-empty"><span className="rn-loader" />Loading students...</div> : displayedStudents.length ? <table><thead><tr><th>#</th><th>Roll No.</th><th>Admission No.</th><th>Student</th><th>Father</th><th>Class / Stream</th></tr></thead><tbody>{displayedStudents.map((student,index) => <tr key={student._id}><td>{index + 1}</td><td>{student.rollNo ? <strong className="rn-roll">{student.rollNo}</strong> : <span className="rn-pending">Pending</span>}</td><td>{student.admissionNo || "—"}</td><td className="rn-name">{student.name}</td><td>{student.fatherName || "—"}</td><td>{student.class}{student.stream ? ` · ${student.stream}` : ""}</td></tr>)}</tbody></table> : <div className="rn-empty"><FiUsers /><strong>{className ? "No students found" : "Select a class to begin"}</strong><span>{className ? "Filter change karke try karein." : "Student list automatically load ho jayegi."}</span></div>}</div>
     </section>
-    <footer className="rn-note"><FiAlertCircle /> Generate action poori selected class ko Arts → Science → Commerce aur phir alphabetical order mein renumber karta hai.</footer>
+    <footer className="rn-note"><FiAlertCircle /> Generate action Arts A-Z, Science Maths A-Z, Science Biology A-Z aur Commerce A-Z order me renumber karta hai.</footer>
   </main>;
 }

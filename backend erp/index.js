@@ -66,7 +66,7 @@ app.use(express.static(frontendDist));
 
 
 // Purane static route ko badal kar yeh likhein:
-const uploadsDir = process.env.UPLOADS_DIR || path.join(process.cwd(), 'uploads');
+const uploadsDir = process.env.UPLOADS_DIR || path.join(process.env.LOCALAPPDATA || path.dirname(process.execPath), 'Vidya Prabandh Demo', 'uploads');
 app.use('/uploads', express.static(uploadsDir));
 
 

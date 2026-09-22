@@ -11,12 +11,13 @@ const Database = require("./database.js");
 
 // 3. मल्टार और क्लाउडिनरी कॉन्फ़िगरेशन (Multer & Cloudinary)
 const multer = require("multer");
+const defaultUploadsDir = path.join(process.env.LOCALAPPDATA || path.dirname(process.execPath), "Vidya Prabandh Demo", "uploads");
 
 // Ek common storage dono files ke liye
 const commonStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     // Sahi absolute path banayein
-    const uploadPath = process.env.UPLOADS_DIR || path.join(process.cwd(), "uploads"); // 👈 अब ये 'path' एरर नहीं देगा
+    const uploadPath = process.env.UPLOADS_DIR || defaultUploadsDir;
     
     // Agar folder nahi bana hai, toh khud se bana dega
     if (!fs.existsSync(uploadPath)) {
@@ -52,6 +53,7 @@ const Attendance = require("../models/attendence");
 const AllowedUser = require("../models/alloweduser.js");
 const Fee = require("../models/fee.js");
 const FeeStructure = require("../models/feeStructure.js");
+const ClassSubject = require("../models/classSubject.js");
 const Teacher = require("../models/teacher.js");
 const TeacherAttendance = require("../models/teacherAttendance.js");
 
@@ -78,6 +80,7 @@ module.exports = {
   AllowedUser,
   Fee,
   FeeStructure,
+  ClassSubject,
   Teacher,
   TeacherAttendance,
   xlsx,

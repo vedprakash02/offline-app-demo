@@ -10,6 +10,7 @@ const EJSON = mongoose.mongo.BSON.EJSON;
 
 const router = express.Router();
 const backupUpload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 150 * 1024 * 1024 } });
+const defaultUploadsDir = path.join(process.env.LOCALAPPDATA || path.dirname(process.execPath), "Vidya Prabandh Demo", "uploads");
 const sqliteBaseUrl = process.env.ID_BACKEND_URL || "http://127.0.0.1:4173";
 const idAdminKeyPath = path.join(process.env.LOCALAPPDATA || process.cwd(), "SIRF ID Attendance", "admin.key");
 const getIdAdminKey = () => String(process.env.ERP_ID_ADMIN_KEY || (fs.existsSync(idAdminKeyPath) ? fs.readFileSync(idAdminKeyPath, "utf8") : "")).trim();
@@ -31,7 +32,7 @@ const sqliteRequest = async (pathname, options = {}) => {
   }
 };
 const uploadSnapshot = () => {
-  const directory = process.env.UPLOADS_DIR || path.join(process.cwd(), "uploads");
+  const directory = process.env.UPLOADS_DIR || defaultUploadsDir;
   if (!fs.existsSync(directory)) return [];
   return fs.readdirSync(directory, { withFileTypes: true }).filter((entry) => entry.isFile()).map((entry) => {
     const filePath = path.join(directory, entry.name);
@@ -82,7 +83,7 @@ router.post("/admin/restore", auth, requireAdmin, backupUpload.single("backup"),
     if (backup.sqlite?.available !== false && backup.sqlite?.tables) {
       sqlite = await sqliteRequest("/api/restore", { method: "POST", headers: { "Content-Type": "application/json", "X-ERP-Admin-Key": getIdAdminKey() }, body: JSON.stringify({ confirmation: "RESTORE SQLITE DATA", tables: backup.sqlite.tables }) });
     }
-    const uploadsDirectory = process.env.UPLOADS_DIR || path.join(process.cwd(), "uploads");
+    const uploadsDirectory = process.env.UPLOADS_DIR || defaultUploadsDir;
     fs.mkdirSync(uploadsDirectory, { recursive: true });
     for (const file of backup.uploads || []) {
       const safeName = path.basename(String(file.name || ""));

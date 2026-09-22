@@ -1,0 +1,71 @@
+
+> latest@0.0.0 build
+> node scripts/prepare-sidecars.cjs && vite build --configLoader runner
+
+
+> backand@1.0.0 build-exe
+> npm run bundle-cjs && node --experimental-sea-config sea-config.json && node scripts/build-sea.cjs
+
+
+> backand@1.0.0 bundle-cjs
+> esbuild index.js --bundle --platform=node --outfile=dist/server-bundle.cjs --format=cjs --target=node24
+
+
+  dist\server-bundle.cjs  6.3mb
+
+Done in 611ms
+Wrote single executable preparation blob to dist/sea-prep.blob
+
+Successfully committed changes to the file: E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-11644.exe
+
+Number of errors: 0
+[36mStart injection of NODE_SEA_BLOB in E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-11644.exe...[0m
+[31mError: Couldn't write executable[0m
+node:child_process:964
+    throw err;
+    ^
+
+Error: Command failed: C:\Program Files\nodejs\node.exe E:\demo apk\offline-app-demo-pkg\backend erp\node_modules\postject\dist\cli.js E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-11644.exe NODE_SEA_BLOB E:\demo apk\offline-app-demo-pkg\backend erp\dist\sea-prep.blob --sentinel-fuse NODE_SEA_FUSE_fce680ab2cc467b6e072b8b5df1996b2
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at Object.<anonymous> (E:\demo apk\offline-app-demo-pkg\backend erp\scripts\build-sea.cjs:24:1)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 10880,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.13.0
+node:child_process:964
+    throw err;
+    ^
+
+Error: Command failed: C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js run build-exe
+    at genericNodeError (node:internal/errors:985:15)
+    at wrappedFn (node:internal/errors:539:14)
+    at checkExecSyncError (node:child_process:925:11)
+    at execFileSync (node:child_process:961:15)
+    at Object.<anonymous> (E:\demo apk\offline-app-demo-pkg\scripts\prepare-sidecars.cjs:26:3)
+    at Module._compile (node:internal/modules/cjs/loader:1761:14)
+    at Object..js (node:internal/modules/cjs/loader:1893:10)
+    at Module.load (node:internal/modules/cjs/loader:1481:32)
+    at Module._load (node:internal/modules/cjs/loader:1300:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:328:14) {
+  status: 1,
+  signal: null,
+  output: [ null, null, null ],
+  pid: 1708,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v24.13.0

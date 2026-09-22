@@ -22,11 +22,23 @@
                                  "csp":  null
                              }
             },
+    "plugins":  {
+                   "updater":  {
+                                  "pubkey":  "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDY2NDIzMEQ0MDJFMjY2MkMKUldRc1p1SUMxREJDWnV5RkIxZjhLd2dNdWQxbExpNXYzYUQ0S09pdEtnblBtOFYyTjRBTDlndi8K",
+                                  "endpoints":  [
+                                                    "https://github.com/vedprakash02/vidya-prabandh-releases/releases/latest/download/latest.json"
+                                                ],
+                                  "windows":  {
+                                                  "installMode":  "passive"
+                                              }
+                              }
+               },
     "bundle":  {
                    "active":  true,
                    "targets":  [
                                    "nsis"
                                ],
+                   "createUpdaterArtifacts":  true,
                    "icon":  [
                                 "icons/icon.ico"
                             ],

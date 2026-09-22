@@ -1,0 +1,60 @@
+
+> latest@0.0.0 build
+> node scripts/prepare-sidecars.cjs && vite build --configLoader runner
+
+
+> backand@1.0.0 build-exe
+> npm run bundle-cjs && node --experimental-sea-config sea-config.json && node scripts/build-sea.cjs
+
+
+> backand@1.0.0 bundle-cjs
+> esbuild index.js --bundle --platform=node --outfile=dist/server-bundle.cjs --format=cjs --target=node24
+
+
+  dist\server-bundle.cjs  6.3mb
+
+Done in 522ms
+Wrote single executable preparation blob to dist/sea-prep.blob
+
+Successfully committed changes to the file: E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-8652.exe
+
+Number of errors: 0
+[36mStart injection of NODE_SEA_BLOB in E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-8652.exe...[0m
+[32m💉 Injection done![0m
+Backend executable created: E:\demo apk\offline-app-demo-pkg\backend erp\dist\backend-erp-sidecar-8652.exe
+Tauri sidecar ready: E:\demo apk\offline-app-demo-pkg\src-tauri\binaries\backend-erp-x86_64-pc-windows-msvc.exe
+
+> sirf-id-attendance-api@1.0.0 build-exe
+> npm run bundle-cjs && node --experimental-sea-config sea-config.json && node scripts/build-sea.cjs
+
+
+> sirf-id-attendance-api@1.0.0 bundle-cjs
+> esbuild server.js --bundle --platform=node --outfile=dist/server-bundle.cjs --format=cjs --target=node24
+
+
+  dist\server-bundle.cjs  35.6kb
+
+Done in 13ms
+Wrote single executable preparation blob to dist/sea-prep.blob
+
+Successfully committed changes to the file: E:\demo apk\offline-app-demo-pkg\backend id\dist\backend-id-sidecar-8652.exe
+
+Number of errors: 0
+[36mStart injection of NODE_SEA_BLOB in E:\demo apk\offline-app-demo-pkg\backend id\dist\backend-id-sidecar-8652.exe...[0m
+[32m💉 Injection done![0m
+Backend executable created: E:\demo apk\offline-app-demo-pkg\backend id\dist\backend-id-sidecar-8652.exe
+Tauri sidecar ready: E:\demo apk\offline-app-demo-pkg\src-tauri\binaries\backend-id-x86_64-pc-windows-msvc.exe
+[36mvite v8.0.3 [32mbuilding client environment for production...[36m[39m
+[2Ktransforming...✓ 247 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                     0.47 kB │ gzip:   0.30 kB
+dist/assets/index-CYkUR4up.css    220.94 kB │ gzip:  37.14 kB
+dist/assets/index-BccD_t_4.js   2,312.68 kB │ gzip: 747.56 kB
+
+[32m✓ built in 1.69s[39m
+[33m[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m

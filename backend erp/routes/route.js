@@ -15,6 +15,7 @@ router.use("/", require("./enrollment.js"));
 router.use("/", require("./master-data.js"));
 router.use("/", require("./promotion.js"));
 router.use("/", require("./fees.js"));
+router.use("/", require("./academic.js"));
 router.use("/", require("./teachers.js"));
 router.use("/", require("./teacher-attendance.js"));
 router.use("/", require("./administration.js"));

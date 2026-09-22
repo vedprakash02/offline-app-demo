@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { FiArrowRight, FiBarChart2, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDollarSign, FiEdit3, FiTrendingUp, FiUserPlus, FiUsers, FiXCircle } from 'react-icons/fi';
+import { FiArrowRight, FiBarChart2, FiBookOpen, FiCalendar, FiCheckCircle, FiClipboard, FiClock, FiDollarSign, FiEdit3, FiTrendingUp, FiUserPlus, FiUsers, FiXCircle } from 'react-icons/fi';
 import './Dashboard.css';
+import './AcademicSetupCard.css';
 import { attendanceApi } from './attendanceApi';
 
 const today = () => new Date().toLocaleDateString('en-CA');
@@ -65,6 +66,13 @@ function Dashboard() {
   return <div className="dashboard-wrapper"><div className="dashboard-container">
     <section className="dashboard-hero"><div className="hero-copy"><span className="hero-eyebrow"><FiTrendingUp /> School overview</span><h1>Good to see you again.</h1><p>Here is what is happening across your school today.</p></div><div className="hero-meta"><span className="hero-date"><FiCalendar /> {formattedDate}</span><span className="role-pill">{currentRole || 'Staff'}</span></div></section>
     {error && <div className="dashboard-alert-error">{error}</div>}
+    <section className="academic-setup-card" aria-label="Academic setup">
+      <button type="button" onClick={() => navigate('/dashboard/academic-subjects')}>
+        <span className="academic-setup-icon"><FiBookOpen /></span>
+        <span className="academic-setup-copy"><small>Academic setup</small><strong>Class subjects</strong><em>Nursery se 12th tak subjects customize karein</em></span>
+        <FiArrowRight className="academic-setup-arrow" />
+      </button>
+    </section>
     <section className="dashboard-grid" aria-label="School statistics">
       <article className="stat-card students-card"><div className="card-icon"><FiUsers /></div><div className="card-info"><span>Total students</span><strong>{stats.totalStudents}</strong><small>Active student records</small></div></article>
       <button className="stat-card present-card" onClick={() => navigate('/dashboard/attendance-report')}><div className="card-icon"><FiCheckCircle /></div><div className="card-info"><span>Present today</span><strong>{stats.todayPresent}</strong><small>View attendance report <FiArrowRight /></small></div></button>
@@ -81,7 +89,7 @@ function Dashboard() {
       <div className="fee-progress" aria-label={`${collectionRate}% fees collected`}><span style={{ width: `${collectionRate}%` }} /></div>
     </section>}
     {teachers.length > 0 && <section className="dashboard-teachers"><div className="dashboard-teachers-head"><div><span>Our faculty</span><h2>Teacher profiles</h2><p>Profile, attendance aur payment history dekhne ke liye card select karein.</p></div><button onClick={() => navigate("/dashboard/teachers")}>Manage all <FiArrowRight /></button></div><div className="dashboard-teacher-track">{teachers.slice(0, 8).map((teacher) => <button className="dashboard-teacher-card" key={teacher._id} onClick={() => navigate(`/dashboard/teachers/${teacher._id}`)}><div className="dashboard-teacher-photo">{teacher.image ? <img src={`http://localhost:3000/uploads/${teacher.image}`} alt={teacher.name} /> : teacher.name.slice(0, 2).toUpperCase()}</div><div><strong>{teacher.name}</strong><span>{teacher.designation}</span><small>{teacher.employeeId} � {teacher.subjects?.slice(0, 2).join(", ") || "Faculty"}</small></div><FiArrowRight /></button>)}</div></section>}
-    <section className="dashboard-content-grid"><div className="quick-panel"><div className="section-heading"><div><span>Shortcuts</span><h2>Quick actions</h2></div><p>Your most-used tools in one place</p></div><div className="quicklinks-grid">{quickActions.map(({ label, description, icon: Icon, path, tone }) => <button key={path} onClick={() => navigate(path)} className={`link-action-card ${tone}`}><span className="quick-icon"><Icon /></span><span className="quick-copy"><strong>{label}</strong><small>{description}</small></span><FiArrowRight className="quick-arrow" /></button>)}</div></div>
+    <section className="dashboard-content-grid"><div className="quick-panel"><div className="section-heading"><div><span>Shortcuts</span><h2>Quick actions</h2></div><p>Your most-used tools in one place</p></div><div className="quicklinks-grid">{quickActions.map(({ label, description, icon: ActionIcon, path, tone }) => <button key={path} onClick={() => navigate(path)} className={`link-action-card ${tone}`}><span className="quick-icon">{React.createElement(ActionIcon)}</span><span className="quick-copy"><strong>{label}</strong><small>{description}</small></span><FiArrowRight className="quick-arrow" /></button>)}</div></div>
       <aside className="attendance-panel"><div className="attendance-panel-icon"><FiClock /></div><span className="panel-kicker">Today&apos;s snapshot</span><h2>{attendanceRate}% attendance</h2><p>{stats.todayPresent} of {totalMarked} marked students are present today.</p><div className="progress-track"><span style={{ width: `${attendanceRate}%` }} /></div><div className="attendance-legend"><span><i className="present-dot" />Present <strong>{stats.todayPresent}</strong></span><span><i className="absent-dot" />Absent <strong>{stats.todayAbsent}</strong></span></div><button className="report-button" onClick={() => navigate('/dashboard/attendance-report')}>Open full report <FiArrowRight /></button></aside></section>
   </div></div>;
 }

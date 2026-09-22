@@ -10,6 +10,7 @@ import StudentDetail from "./pages/add-edit-list-student/StudentDetail";
 import EditStudent from "./pages/add-edit-list-student/ModernEditStudent";
 import ProtectedRoute from "./component/protected_rout/ProtectedRoute";
 import Dashboard from "./component/dashboard/Dashboard";
+import AcademicSubjects from "./pages/academic-subjects/AcademicSubjects";
 
 
 import Schoolprofile from "./pages/school-profile/ModernSchoolProfile";
@@ -27,6 +28,8 @@ import FeeManagement from "./pages/fees/FeeManagement"
 import FeeReminders from "./pages/fees/FeeReminders"
 import TeacherManagement from "./pages/teachers/TeacherManagement"
 import TeacherDetail from "./pages/teachers/TeacherDetail"
+import SalaryPayroll from "./pages/teachers/SalaryPayroll"
+import PayrollPaymentHistory from "./pages/teachers/PayrollPaymentHistory"
 import TeacherAttendance from "./pages/teachers/TeacherAttendance"
 import TeacherAttendanceReport from "./pages/teachers/TeacherAttendanceReport"
 import InactiveTeachers from "./pages/teachers/InactiveTeachers"
@@ -47,6 +50,7 @@ import { BackupRestore, StudentValidation } from "./pages/administration/Adminis
 import StudentSync from "./pages/administration/StudentSync";
 import UserAccess from "./pages/administration/UserAccess";
 import LicenseGate from "./LicenseGate";
+import AppUpdater from "./components/AppUpdater";
 
 
 function App() {
@@ -62,7 +66,7 @@ function App() {
   return (
 
     <>
-      <LicenseGate><Router>
+      <LicenseGate><AppUpdater /><Router>
         <Routes>
         
 
@@ -84,6 +88,7 @@ function App() {
             <Route path='/session' element={<Session />} />
             <Route path="/dashboard" element={<MainLayout />}>
               <Route index element={<Dashboard />} />
+              <Route path="academic-subjects" element={<AcademicSubjects />} />
               <Route path='student-pramotion' element={<StudentPromotion />} />
 
               {/* teacher route */}
@@ -106,6 +111,8 @@ function App() {
               <Route path="fee-reminders" element={<FeeReminders />} />
               <Route path="teachers" element={<TeacherManagement />} />
               <Route path="teachers/:id" element={<TeacherDetail />} />
+              <Route path="staff-salary" element={<SalaryPayroll />} />
+              <Route path="salary-payment-history" element={<PayrollPaymentHistory />} />
               <Route path="teacher-attendance" element={<TeacherAttendance />} />
               <Route path="teacher-attendance-report" element={<TeacherAttendanceReport />} />
               <Route path="inactive-teachers" element={<InactiveTeachers />} />

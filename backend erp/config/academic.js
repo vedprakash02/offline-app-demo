@@ -6,7 +6,11 @@ const getSubjects = (studentClass, stream = "") => {
   if (["6th", "7th", "8th"].includes(studentClass)) return ["Hindi", "English", "Mathematics", "Science", "Social Science", "Sanskrit", "Computer"];
   if (["9th", "10th"].includes(studentClass)) return ["Hindi", "English", "Maths", "Science", "Social Science", "Sanskrit"];
   const groups = { science: ["Physics", "Chemistry", "Mathematics", "Biology", "English", "Hindi"], commerce: ["Accountancy", "Business Studies", "Economics", "English", "Hindi"], arts: ["History", "Geography", "Political Science", "English", "Hindi"] };
-  if (stream) return groups[String(stream).toLowerCase()] || [];
+  if (stream) {
+    const normalizedStream = String(stream).toLowerCase();
+    if (normalizedStream.startsWith("science")) return groups.science;
+    return groups[normalizedStream] || [];
+  }
   return [...new Set(Object.values(groups).flat())];
 };
 module.exports = { SCHOOL_CLASSES, EXAMS, getSubjects };

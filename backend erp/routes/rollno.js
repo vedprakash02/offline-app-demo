@@ -49,8 +49,10 @@ router.put("/generate-roll-no", auth, async (req, res) => {
       // Stream ki priority set karein (Arts pehle, fir Science, fir Commerce)
       const streamPriority = {
         'arts': 1,
+        'science - maths': 2,
         'science': 2,
-        'commerce': 3
+        'science - biology': 3,
+        'commerce': 4,
       };
 
       students.sort((a, b) => {
@@ -65,7 +67,7 @@ router.put("/generate-roll-no", auth, async (req, res) => {
         }
 
         // Agar stream bilkul SAME hai, toh unhe Name ke alphabetical order (A to Z) me sort karein
-        return a.name.localeCompare(b.name);
+        return a.name.localeCompare(b.name, undefined, { sensitivity: "base" });
       });
     } else {
       // Class 9th aur 10th ke liye normal alphabetical sort (A to Z)

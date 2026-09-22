@@ -29,9 +29,11 @@ export default function Sidebar() {
 
     {/* 1. STAFF MANAGEMENT  */}
     <Group label="Staff Management" icon={FiUsers} open={staffOpen} onToggle={() => setStaffOpen((v) => !v)}>
-      <SubItem to="/dashboard/teachers" icon={FiUsers}>Teacher Profiles & Salary</SubItem>
-      <SubItem to="/dashboard/teacher-attendance" icon={FiCheckSquare}>Teacher Attendance</SubItem>
-      <SubItem to="/dashboard/teacher-attendance-report" icon={FiBarChart2}>Teacher Attendance Report</SubItem>
+      <SubItem to="/dashboard/teachers" icon={FiUsers}>Teacher Profiles</SubItem>
+      <SubItem to="/dashboard/staff-salary" icon={FiDollarSign}>Salary & Payroll</SubItem>
+      <SubItem to="/dashboard/salary-payment-history" icon={FiFileText}>Payments & Receipts</SubItem>
+      <SubItem to="/dashboard/teacher-attendance" icon={FiCheckSquare}>Daily Staff Attendance</SubItem>
+      <SubItem to="/dashboard/teacher-attendance-report" icon={FiBarChart2}>Monthly Attendance Reports</SubItem>
       <SubItem to="/dashboard/inactive-teachers" icon={FiUsers}>Inactive Teachers</SubItem>
       <SubItem to="/dashboard/teacher-excel-export" icon={FiDownload}>Export Teacher Data (Excel)</SubItem>
     </Group>
