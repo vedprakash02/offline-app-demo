@@ -73,3 +73,5 @@ Add dated notes below this line after meaningful changes:
 - 2026-09-22: Created the project context file.
 - 2026-09-22: Added Academic Setup page, dashboard card, route, MongoDB model, and ERP API. Focused ESLint and `npm.cmd run build` passed.
 - 2026-09-22: Added Tauri desktop updater popup/download/relaunch flow. Release setup is documented in `DESKTOP-UPDATES.md`; MilesWeb URL and Tauri public signing key still need to be filled before production release.
+- 2026-09-22: GitHub Actions release workflow was added and configured to publish to `vedprakash02/vidya-prabandh-releases`. Secrets were added in GitHub. Releases `v1.0.0`, `v1.0.1`, and `v1.0.2` were attempted; the latest workflow still failed. Next session starts by opening the `v1.0.2` GitHub Actions error log and fixing that failure.
+- 2026-09-23: Could not retrieve the private `v1.0.2` Actions log from the current environment. Release workflow now uses tracked-lockfile `npm ci` and retries transient release API/upload failures three times. `npm run lint` passed; verify the next tagged run and confirm `RELEASE_REPO_TOKEN` can write to the public release repository if it still fails.
