@@ -28,7 +28,7 @@ jobs:
           toolchain: stable-x86_64-pc-windows-msvc
 
       - name: Install frontend dependencies
-        run: npm ci --no-audit --no-fund
+        run: npm install --no-audit --no-fund
 
       - name: Build and publish Tauri release
         uses: tauri-apps/tauri-action@v1
