@@ -23,6 +23,10 @@ for (const { directory, binaryName } of sidecars) {
   const output = path.join(backendDir, "dist", `${binaryName}-sidecar-${process.pid}.exe`);
   const destination = path.join(binariesDir, `${binaryName}-${rustArch}-pc-windows-msvc.exe`);
 
+  execFileSync(process.execPath, [npmCli, "install", "--no-audit", "--no-fund"], {
+    cwd: backendDir,
+    stdio: "inherit",
+  });
   execFileSync(process.execPath, [npmCli, "run", "build-exe"], {
     cwd: backendDir,
     stdio: "inherit",

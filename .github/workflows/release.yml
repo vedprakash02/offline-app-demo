@@ -30,12 +30,30 @@ jobs:
       - name: Install frontend dependencies
         run: npm install --no-audit --no-fund
 
+      - name: Point Cargo and temp dirs at the runner
+        shell: pwsh
+        run: |
+          $cargoDir = Join-Path $env:RUNNER_TEMP "vidya-prabandh-cargo"
+          $tmpDir = Join-Path $env:RUNNER_TEMP "vidya-prabandh-tmp"
+          New-Item -ItemType Directory -Force -Path $cargoDir, $tmpDir | Out-Null
+          $cargoUnix = $cargoDir.Replace("\", "/")
+          $tmpUnix = $tmpDir.Replace("\", "/")
+          @"
+          [build]
+          target-dir = "$cargoUnix"
+
+          [env]
+          TEMP = { value = "$tmpUnix", force = true }
+          TMP = { value = "$tmpUnix", force = true }
+          "@ | Set-Content -Encoding utf8NoBOM "src-tauri/.cargo/config.toml"
+
       - name: Build and publish Tauri release
         uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_REPO_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+          CARGO_TARGET_DIR: ${{ runner.temp }}/vidya-prabandh-cargo
         with:
           owner: vedprakash02
           repo: vidya-prabandh-releases
