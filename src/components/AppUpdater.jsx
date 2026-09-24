@@ -46,7 +46,8 @@ export default function AppUpdater() {
       await relaunch();
     } catch (error) {
       console.error("Update install failed:", error);
-      setStatus("Update install nahi hua. Baad mein dobara koshish karein.");
+      const errMsg = error?.message || (typeof error === "string" ? error : JSON.stringify(error));
+      setStatus(`Update fail: ${errMsg}`);
       setBusy(false);
     }
   };
@@ -58,7 +59,7 @@ export default function AppUpdater() {
         <h2 id="app-update-title">Naya update available hai</h2>
         <p>Version {update.version} install karein. App update ke baad automatically restart hogi.</p>
         {busy && <div className="app-update-progress"><span style={{ width: `${progress}%` }} /></div>}
-        {status && <small className="app-update-status">{status}</small>}
+        {status && <small className="app-update-status" style={{ display: 'block', wordBreak: 'break-word', color: status.startsWith('Update fail') ? '#dc2626' : 'inherit' }}>{status}</small>}
         <div className="app-update-actions">
           {!busy && <button type="button" className="app-update-later" onClick={() => setUpdate(null)}>Baad mein</button>}
           <button type="button" className="app-update-install" onClick={install} disabled={busy}>{busy ? `${progress || ""}% Downloading...` : "Update now"}</button>
