@@ -56,7 +56,7 @@ export default function AppUpdater() {
     <div className="app-update-backdrop" role="dialog" aria-modal="true" aria-labelledby="app-update-title">
       <section className="app-update-dialog">
         <span className="app-update-kicker">Vidya Prabandh update</span>
-        <h2 id="app-update-title">Naya update available hai</h2>
+        <h2 id="app-update-title"> update now </h2>
         <p>Version {update.version} install karein. App update ke baad automatically restart hogi.</p>
         {busy && <div className="app-update-progress"><span style={{ width: `${progress}%` }} /></div>}
         {status && <small className="app-update-status" style={{ display: 'block', wordBreak: 'break-word', color: status.startsWith('Update fail') ? '#dc2626' : 'inherit' }}>{status}</small>}
