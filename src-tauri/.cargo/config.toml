@@ -1,6 +1,3 @@
-[build]
-target-dir = "C:/Users/MYPC/AppData/Local/Vidya Prabandh Demo/cargo-target"
-
 [env]
 TEMP = { value = "C:/Users/MYPC/AppData/Local/Vidya Prabandh Demo/build-temp", force = true }
 TMP = { value = "C:/Users/MYPC/AppData/Local/Vidya Prabandh Demo/build-temp", force = true }
